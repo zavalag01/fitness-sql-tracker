@@ -1,0 +1,87 @@
+BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS "exercises" (
+	"exercise_id"	INTEGER,
+	"workout_id"	INTEGER,
+	"exercise_name"	TEXT,
+	"sets"	INTEGER,
+	"reps"	INTEGER,
+	"weight_kg"	REAL,
+	PRIMARY KEY("exercise_id"),
+	FOREIGN KEY("workout_id") REFERENCES "workouts"("workout_id")
+);
+CREATE TABLE IF NOT EXISTS "users" (
+	"user_id"	INTEGER,
+	"name"	TEXT,
+	"age"	INTEGER,
+	"height_cm"	INTEGER,
+	"weight_kg"	REAL,
+	PRIMARY KEY("user_id")
+);
+CREATE TABLE IF NOT EXISTS "workouts" (
+	"workout_id"	INTEGER,
+	"user_id"	INTEGER,
+	"workout_date"	TEXT,
+	"workout_type"	TEXT,
+	"duration_minutes"	INTEGER,
+	PRIMARY KEY("workout_id"),
+	FOREIGN KEY("user_id") REFERENCES "users"("user_id")
+);
+INSERT INTO "exercises" VALUES (1,1,'Barbell Bench Press',4,8,92.0);
+INSERT INTO "exercises" VALUES (2,1,'Incline Dumbbell Press',3,10,27.0);
+INSERT INTO "exercises" VALUES (3,1,'Pec Deck',3,12,47.0);
+INSERT INTO "exercises" VALUES (4,1,'Seated Dumbbell Shoulder Press',3,10,20.0);
+INSERT INTO "exercises" VALUES (5,1,'Cable Lateral Raises',3,12,4.0);
+INSERT INTO "exercises" VALUES (6,1,'Overhead Cable Triceps Extension (Rope)',3,12,15.0);
+INSERT INTO "exercises" VALUES (7,2,'Lat Pulldown',3,10,65.8);
+INSERT INTO "exercises" VALUES (8,2,'T-bar Row',3,12,41.0);
+INSERT INTO "exercises" VALUES (9,2,'Straight  Arm Pull Down',3,12,16.0);
+INSERT INTO "exercises" VALUES (10,2,'EZ Bar Curl',3,10,27.0);
+INSERT INTO "exercises" VALUES (11,2,'Incline DB Curl',3,12,7.0);
+INSERT INTO "exercises" VALUES (12,2,'Cable Curl',2,15,16.0);
+INSERT INTO "exercises" VALUES (13,3,'Barbell Back Squats',4,10,70.0);
+INSERT INTO "exercises" VALUES (14,3,'RDL',3,10,32.0);
+INSERT INTO "exercises" VALUES (15,3,'Leg Press',3,12,227.0);
+INSERT INTO "exercises" VALUES (16,3,'Leg Curl Machine',3,12,25.0);
+INSERT INTO "exercises" VALUES (17,3,'Leg Extension',3,12,47.0);
+INSERT INTO "exercises" VALUES (18,3,'Calf Raises',3,15,40.0);
+INSERT INTO "exercises" VALUES (19,3,'Goblet Squat',3,10,32.0);
+INSERT INTO "exercises" VALUES (20,4,'DB Flat Bench Press',4,10,32.0);
+INSERT INTO "exercises" VALUES (21,4,'DB Row',4,10,32.0);
+INSERT INTO "exercises" VALUES (22,4,'Arnold Press',3,12,16.0);
+INSERT INTO "exercises" VALUES (23,4,'Lateral Raises',3,15,7.0);
+INSERT INTO "exercises" VALUES (24,4,'Cable Rope Curl',3,12,16.0);
+INSERT INTO "exercises" VALUES (25,4,'Rope Tricep Pushdown',3,12,16.0);
+INSERT INTO "exercises" VALUES (26,4,'Push Ups',3,15,0.0);
+INSERT INTO "exercises" VALUES (27,4,'Cable Face Pulls',3,15,16.0);
+INSERT INTO "exercises" VALUES (28,9,'Barbell Bench Press',3,10,95.0);
+INSERT INTO "exercises" VALUES (29,9,'Incline Dumbbell Press',3,10,32.0);
+INSERT INTO "exercises" VALUES (30,9,'Pec Deck',3,12,59.0);
+INSERT INTO "exercises" VALUES (31,9,'Seated Dumbbell Shoulder Press',3,10,25.0);
+INSERT INTO "exercises" VALUES (32,9,'Cable Lateral Raises',3,12,7.0);
+INSERT INTO "exercises" VALUES (33,9,'Overhead Cable Triceps Extension (Rope)',3,12,19.0);
+INSERT INTO "exercises" VALUES (34,10,'Leg Press',3,12,230.0);
+INSERT INTO "exercises" VALUES (35,10,'Leg Curl Machine',3,12,28.0);
+INSERT INTO "exercises" VALUES (36,10,'Leg Extension',3,12,68.0);
+INSERT INTO "exercises" VALUES (37,10,'Calf Raises',3,15,40.0);
+INSERT INTO "exercises" VALUES (38,10,'Goblet Squat',3,10,32.0);
+INSERT INTO "exercises" VALUES (39,11,'DB Flat Bench Press',4,10,32.0);
+INSERT INTO "exercises" VALUES (40,11,'DB Row',4,10,32.0);
+INSERT INTO "exercises" VALUES (41,11,'Arnold Press',3,12,16.0);
+INSERT INTO "exercises" VALUES (42,11,'Lateral Raises',3,15,7.0);
+INSERT INTO "exercises" VALUES (43,11,'Cable Rope Curl',3,12,16.0);
+INSERT INTO "exercises" VALUES (44,11,'Rope Tricep Pushdown',3,12,16.0);
+INSERT INTO "exercises" VALUES (45,11,'Push Ups',3,15,0.0);
+INSERT INTO "exercises" VALUES (46,11,'Cable Face Pulls',3,15,16.0);
+INSERT INTO "users" VALUES (1,'Gabriel',24,175,78.0);
+INSERT INTO "workouts" VALUES (1,1,'2025-8-18','Push',45);
+INSERT INTO "workouts" VALUES (2,1,'2025-8-19','Pull',45);
+INSERT INTO "workouts" VALUES (3,1,'2025-8-20','Legs',45);
+INSERT INTO "workouts" VALUES (4,1,'2025-8-21','Upper',45);
+INSERT INTO "workouts" VALUES (5,1,'2025-8-25','Push',45);
+INSERT INTO "workouts" VALUES (6,1,'2025-8-26','Pull',45);
+INSERT INTO "workouts" VALUES (7,1,'2025-8-27','Legs',45);
+INSERT INTO "workouts" VALUES (8,1,'2025-8-28','Upper',45);
+INSERT INTO "workouts" VALUES (9,1,'2025-9-2','Push',45);
+INSERT INTO "workouts" VALUES (10,1,'2025-9-3','Legs',45);
+INSERT INTO "workouts" VALUES (11,1,'2025-9-4','Upper',45);
+COMMIT;
