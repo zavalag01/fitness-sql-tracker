@@ -53,3 +53,22 @@ SELECT workout_date, workout_type, duration_minutes
 FROM workouts
 ORDER BY duration_minutes DESC
 LIMIT 1;
+
+-- 11. Find the top 3 exercises by total volume.
+SELECT exercise_name, SUM(sets * reps * weight_kg) AS total_volume
+FROM exercises
+GROUP BY exercise_name
+ORDER BY total_volume DESC
+LIMIT 3;
+
+-- Calculate your 1 Rep Max (1RM) estimates for each exercise (Epley formula: weight × (1 + reps/30)).
+SELECT exercise_name, MAX(weight_kg * (1 + reps/30.0)) AS est_1rm
+FROM exercises
+GROUP BY exercise_name;
+
+-- Show progression of your bench press weight over time.
+SELECT w.workout_date, e.weight_kg
+FROM workouts w
+JOIN exercises e ON w.workout_id = e.workout_id
+WHERE e.exercise_name = 'Barbell Bench Press'
+ORDER BY w.workout_date;
